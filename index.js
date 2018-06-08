@@ -1,7 +1,6 @@
 // making some notes
-
 d3.json(
-"https://github.com/xcelsiorbosi/uniEx4/blob/master/fatalities.json",
+        "https://github.com/xcelsiorbosi/uniEx4/blob/master/fatalities.json",
   
   function(data) {
     console.log(data);
