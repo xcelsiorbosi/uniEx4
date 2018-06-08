@@ -1,6 +1,6 @@
 // making some notes
 d3.json(
-        "https://github.com/xcelsiorbosi/uniEx4/blob/master/fatalities.json",
+        "https://raw.githubusercontent.com/xcelsiorbosi/uniEx4/master/fatalities.json",
   
   function(data) {
     console.log(data);
@@ -63,11 +63,11 @@ d3.json(
     // setting the scale for X-Axis
     var xScale = d3.time
       .scale()
-      .domain([new Date(1947, 1, 1), new Date(2015, 7, 1)])
+      .domain([new Date(1980, 1, 1), new Date(2018, 7, 1)])
       .range([62, w - margin.right]);
 
     // setting the scale for Y-Axis
-    var yScale = d3.scale.linear().domain([0, 19000]).range([h, 0]);
+    var yScale = d3.scale.linear().domain([0, 100]).range([h, 0]);
 
     // plotting data by using svg rectangle as bar of the bar chart
     svg
