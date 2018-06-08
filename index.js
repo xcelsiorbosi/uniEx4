@@ -35,9 +35,9 @@ d3.json(
           "December"
         ];
         return (
-          "<strong> $" +
+          "<strong> " +
           d[1] +
-          " Billion" +
+          " Fatalities" +
           " </strong><br> <p> " +
           date.getFullYear() +
           " - " +
@@ -123,7 +123,7 @@ d3.json(
       .attr("x", 100)
       .attr("y", h + 60)
       .text(
-        "Units: Billions of Dollars Seasonal Adjustment: Seasonally Adjusted Annual Rate Notes"
+        "Units: Individual Fatalities"
       );
   }
 );
