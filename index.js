@@ -23,7 +23,9 @@ d3.json(
       .html(function(d) {
         var date = d[0];
         var months = [
+          // changed to message for tooltip
           "Recorded Fatalities",
+
           // "February",
           // "March",
           // "April",
@@ -82,10 +84,10 @@ length
       .attr("y", function(d, i) {return yScale(d[1]);})
       .attr("width", function(d, i) {return w / dataset.length *0.75;})
       .attr("height", function(d) {return h - yScale(d[1]);})
-      .style("stroke", "red") 
+      .style("stroke", "black") 
 
       .attr("class", "bar")
-      .attr("fill", "#0000FF")
+      .attr("fill", "#8E0101")
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 

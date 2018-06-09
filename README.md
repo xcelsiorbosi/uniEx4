@@ -17,3 +17,8 @@ This did enhance the graphic as the bar chart that converts into a vertical tree
 
 This assisted from truning a relatively plain graphic into a graphic that displays both trends by yearly duration of larger attacks growing in size but also the frequency of attacks is closer together which is easy to derive from the transition function that slides to a close. 
 
+Tooltip: 
+TThis assists with getting actuals, had some issues with the location as its based off of the x axis which I was manipulating in the transition. 
+
+Colouring: 
+I chose red to signigy that the values are not desirable contrasted to the boxed border colour of black to show where the box was created in terms of years
