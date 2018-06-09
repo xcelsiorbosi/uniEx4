@@ -21,18 +21,18 @@ d3.json(
       .html(function(d) {
         var date = d[0];
         var months = [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December"
+          "Recorded Fatalities",
+          // "February",
+          // "March",
+          // "April",
+          // "May",
+          // "June",
+          // "July",
+          // "August",
+          // "September",
+          // "October",
+          // "November",
+          // "December"
         ];
         return (
           "<strong> " +
@@ -63,7 +63,7 @@ d3.json(
     // setting the scale for X-Axis
     var xScale = d3.time
       .scale()
-      .domain([new Date(1980, 1, 1), new Date(2018, 7, 1)])
+      .domain([new Date(1980, 1, 1), new Date(2020, 1, 1)])
       .range([62, w - margin.right]);
 
     // setting the scale for Y-Axis
@@ -82,13 +82,13 @@ d3.json(
         return yScale(d[1]);
       })
       .attr("width", function(d, i) {
-        return w / dataset.length;
+        return w / dataset.length *0.75;
       })
       .attr("height", function(d) {
         return h - yScale(d[1]);
       })
       .attr("class", "bar")
-      .attr("fill", "#3f3f3f")
+      .attr("fill", "#0000FF")
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
