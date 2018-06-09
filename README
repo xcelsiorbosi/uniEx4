@@ -3,22 +3,24 @@ Made for uni excercise 4 visualisation course
 
 purpose: Implement visual with transition property
 
-Briefly describe the data source you have used and comment on any conclusions that can be
+Additional Task: Briefly describe the data source you have used and comment on any conclusions that can be
 drawn from your visualisation. 
 
 Data Source: 
-I posted the dat onto git and used an api call to the json file. (internet connection required to use this diagram)
+I posted the data onto git and used an api call to the json file. (internet connection required to use this diagram)
 The Data Source used was a rolled up version of fatalities data of mass shootings that I am using for this same course. 
 The Data was aggregated to a yearly grain as to display total fatalities per year as a result of mass shootings. 
 
 Conclusions:
 The end result was a bar chart with transition properties. 
-This did enhance the graphic as the bar chart that converts into a vertical tree map allowing the user to see trends of the max fatalities over yearly periods until there is a greater value. 
+This did enhance the graphic as the transition transforms the bar chartinto a vertical tree map allowing the user to see trends of the max fatalities over yearly periods. 
 
-This assisted from truning a relatively plain graphic into a graphic that displays both trends by yearly duration of larger attacks growing in size but also the frequency of attacks is closer together which is easy to derive from the transition function that slides to a close. 
+This assisted with turning a relatively plain graphic into a graphic that can display two key insights:
+1) displays trends by yearly duration showing larger attacks growing in size over time. 
+2) Shows the frequency of attacks is closer together which is easy to derive from the transition function that slides to a close last on the bigger gaps. 
 
 Tooltip: 
-TThis assists with getting actuals, had some issues with the location as its based off of the x axis which I was manipulating in the transition. 
+This assists with getting actuals, had some issues with the location as its based off of the x axis which I was manipulating in the transition. Hover colour assists the user by showing what bar has been selected.
 
 Colouring: 
-I chose red to signigy that the values are not desirable contrasted to the boxed border colour of black to show where the box was created in terms of years
+I chose red to signify that the values are not desirable contrasted to the boxed border colour of black to show where the box was created in terms of years
