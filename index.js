@@ -132,11 +132,11 @@ length
           .duration(2500)
           .delay(200)
           .attr("height", function(d) {return h - yScale(d[1]);})
-          .attr("width", function(d) {return (xScale(d[0])) + (xScale(d[0]))
+          .attr("width", function(d) {return (xScale(d[0])) + (10)
           });
       }
 
-setInterval(redraw(), 1000);
+setInterval(redraw(), 3500);
 
 })
    
