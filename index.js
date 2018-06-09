@@ -138,7 +138,10 @@ length
           });
       }
 
-setInterval(redraw(), 3500);
+setInterval(redraw(), 2000);
+setTimeout(function(){
+   window.location.reload(1);
+}, 3000);
 
 })
    
