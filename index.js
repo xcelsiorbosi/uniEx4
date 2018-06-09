@@ -125,7 +125,7 @@ length
       .attr("x", 100)
       .attr("y", h + 60)
       .text(
-        "Units: Individual Fatalities"
+        "Units: Individual Fatalities aggreagated by year"
           );
 
       function redraw() {
