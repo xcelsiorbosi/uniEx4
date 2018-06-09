@@ -1,9 +1,9 @@
 // making some notes
 d3.json(
         "https://raw.githubusercontent.com/xcelsiorbosi/uniEx4/master/fatalities.json",
-  
   function(data) {
     console.log(data);
+
 
     // choosing padding and width and height of svg
     var margin = { top: 20, right: 50, bottom: 20, left: 20 };
@@ -13,6 +13,8 @@ d3.json(
     // the data to be visualized
     var dataset = data["data"];
     
+
+
     // tooltip code 
     var tip = d3
       .tip()
@@ -68,6 +70,7 @@ d3.json(
 
     // setting the scale for Y-Axis
     var yScale = d3.scale.linear().domain([0, 100]).range([h, 0]);
+length
 
     // plotting data by using svg rectangle as bar of the bar chart
     svg
@@ -75,22 +78,18 @@ d3.json(
       .data(dataset)
       .enter()
       .append("rect")
-      .attr("x", function(d) {
-        return xScale(d[0]);
-      })
-      .attr("y", function(d, i) {
-        return yScale(d[1]);
-      })
-      .attr("width", function(d, i) {
-        return w / dataset.length *0.75;
-      })
-      .attr("height", function(d) {
-        return h - yScale(d[1]);
-      })
+      .attr("x", function(d) {return xScale(d[0]);})
+      .attr("y", function(d, i) {return yScale(d[1]);})
+      .attr("width", function(d, i) {return w / dataset.length *0.75;})
+      .attr("height", function(d) {return h - yScale(d[1]);})
+      .style("stroke", "red") 
+
       .attr("class", "bar")
       .attr("fill", "#0000FF")
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
+
+
 
     // Y-Axis for the plot
     var yAxis = d3.svg.axis().scale(yScale).orient("left");
@@ -124,6 +123,21 @@ d3.json(
       .attr("y", h + 60)
       .text(
         "Units: Individual Fatalities"
-      );
-  }
-);
+          );
+
+      function redraw() {
+          svg.selectAll("rect")
+          .data(dataset)
+          .transition()
+          .duration(2500)
+          .delay(200)
+          .attr("height", function(d) {return h - yScale(d[1]);})
+          .attr("width", function(d) {return (xScale(d[0])) + (xScale(d[0]))
+          });
+      }
+
+setInterval(redraw(), 1000);
+
+})
+   
+
