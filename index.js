@@ -3,6 +3,7 @@ d3.json(
         "https://raw.githubusercontent.com/xcelsiorbosi/uniEx4/master/fatalities1.json",
   function(data) {
     console.log(data);
+    
 
 
     // choosing padding and width and height of svg
@@ -124,7 +125,7 @@ length
       .attr("x", 100)
       .attr("y", h + 60)
       .text(
-        "Units: Individual Fatalities"
+        "Units: Individual Fatalities aggreagated by year"
           );
 
       function redraw() {
@@ -135,10 +136,17 @@ length
           .delay(200)
           .attr("height", function(d) {return h - yScale(d[1]);})
           .attr("width", function(d) {return (xScale(d[0])) + (10)
+          // .delay(200)
+
+
           });
       }
 
-setInterval(redraw(), 3500);
+setInterval(redraw(), 2000);
+
+// redraw needs some logic to redraw to 0 then change x
+setTimeout(function(){
+   window.location.reload(1);
+}, 5000);
 
 })
-   
