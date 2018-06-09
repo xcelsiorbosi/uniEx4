@@ -36,27 +36,25 @@ var data = [{"year":1982, "fatalities":8},
 
 
 //bar height and width
-var drawingWidth = 420;
+var drawingWidth = 2000;
 var barWidth = 10;
 
 // total height depends on no of data points,  plus giving it a little bit of padding
-var drawingHeight = (barWidth + 1) * data.fatalities;
-
+var drawingHeight = (barWidth + 1) * data.length;
 
 // the scaling needs range of data(domain call) and the range in pixel
 // first is x and second is y axis.
 // So,  given any data value, it scales it to pixels
 // Here it is given in linear scale
-var y = d3.scaleLinear().domain([0, data.fatalities]).range([0, drawingHeight]);
-var x = d3.scaleLinear().domain([0, d3.max(data.fatalities, function(datum) 
+var y = d3.scaleLinear().domain([0, data.length]).range([0, drawingHeight]);
+var x = d3.scaleLinear().domain([0, d3.max(data, function(datum) 
             { 
-              return datum[0] 
+              return datum.fatalities
             }) + 100
         ]).rangeRound([0, drawingWidth]);
 
-
 // svg drawing space with height and width specified
-var barDemo = d3.select('svg')
+var barDemo = d3.select('#animated-bar')
              .append('svg')
              .attr('width', drawingWidth)
              .attr('height', drawingHeight);
@@ -99,6 +97,9 @@ function getRandomInRange(min, max) {
 // counter =0;
 // //animate the bar by changing the width 
 
+
+
+
 function redraw() {
     barDemo.selectAll("rect")
     .data(data)
@@ -106,11 +107,13 @@ function redraw() {
     .duration(2500)
     .delay(200)
     .attr("width", function(datum) { 
-        return x(datum[0]) + getRandomInRange(1, 100) 
+        return x(datum.fatalities) + (5*datum.fatalities) 
     });
 }
 
-// // calls redraw every few seconds
-setInterval(redraw(), 3500);
+// calls redraw every few seconds
+setInterval(redraw(), 1000);
+
+
 
 
