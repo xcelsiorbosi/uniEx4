@@ -3,6 +3,7 @@ d3.json(
         "https://raw.githubusercontent.com/xcelsiorbosi/uniEx4/master/fatalities1.json",
   function(data) {
     console.log(data);
+    
 
 
     // choosing padding and width and height of svg
@@ -135,13 +136,17 @@ length
           .delay(200)
           .attr("height", function(d) {return h - yScale(d[1]);})
           .attr("width", function(d) {return (xScale(d[0])) + (10)
+          // .delay(200)
+
+
           });
       }
 
 setInterval(redraw(), 2000);
+
+// redraw needs some logic to redraw to 0 then change x
 setTimeout(function(){
    window.location.reload(1);
-}, 3000);
+}, 5000);
 
 })
-   
