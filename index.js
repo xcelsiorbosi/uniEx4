@@ -1,9 +1,9 @@
 // making some notes
 d3.json(
-        "https://github.com/xcelsiorbosi/uniEx4/blob/master/fatalities.json",
-  
+        "https://raw.githubusercontent.com/xcelsiorbosi/uniEx4/master/fatalities.json",
   function(data) {
     console.log(data);
+
 
     // choosing padding and width and height of svg
     var margin = { top: 20, right: 50, bottom: 20, left: 20 };
@@ -13,6 +13,8 @@ d3.json(
     // the data to be visualized
     var dataset = data["data"];
     
+
+
     // tooltip code 
     var tip = d3
       .tip()
@@ -21,23 +23,25 @@ d3.json(
       .html(function(d) {
         var date = d[0];
         var months = [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December"
+          // changed to message for tooltip
+          "Recorded Fatalities",
+
+          // "February",
+          // "March",
+          // "April",
+          // "May",
+          // "June",
+          // "July",
+          // "August",
+          // "September",
+          // "October",
+          // "November",
+          // "December"
         ];
         return (
-          "<strong> $" +
+          "<strong> " +
           d[1] +
-          " Billion" +
+          " Fatalities" +
           " </strong><br> <p> " +
           date.getFullYear() +
           " - " +
@@ -63,11 +67,12 @@ d3.json(
     // setting the scale for X-Axis
     var xScale = d3.time
       .scale()
-      .domain([new Date(1947, 1, 1), new Date(2015, 7, 1)])
+      .domain([new Date(1980, 1, 1), new Date(2020, 1, 1)])
       .range([62, w - margin.right]);
 
     // setting the scale for Y-Axis
-    var yScale = d3.scale.linear().domain([0, 19000]).range([h, 0]);
+    var yScale = d3.scale.linear().domain([0, 100]).range([h, 0]);
+length
 
     // plotting data by using svg rectangle as bar of the bar chart
     svg
@@ -75,22 +80,18 @@ d3.json(
       .data(dataset)
       .enter()
       .append("rect")
-      .attr("x", function(d) {
-        return xScale(d[0]);
-      })
-      .attr("y", function(d, i) {
-        return yScale(d[1]);
-      })
-      .attr("width", function(d, i) {
-        return w / dataset.length;
-      })
-      .attr("height", function(d) {
-        return h - yScale(d[1]);
-      })
+      .attr("x", function(d) {return xScale(d[0]);})
+      .attr("y", function(d, i) {return yScale(d[1]);})
+      .attr("width", function(d, i) {return w / dataset.length *0.75;})
+      .attr("height", function(d) {return h - yScale(d[1]);})
+      .style("stroke", "black") 
+
       .attr("class", "bar")
-      .attr("fill", "#3f3f3f")
+      .attr("fill", "#8E0101")
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
+
+
 
     // Y-Axis for the plot
     var yAxis = d3.svg.axis().scale(yScale).orient("left");
@@ -123,7 +124,22 @@ d3.json(
       .attr("x", 100)
       .attr("y", h + 60)
       .text(
-        "Units: Billions of Dollars Seasonal Adjustment: Seasonally Adjusted Annual Rate Notes"
-      );
-  }
-);
+        "Units: Individual Fatalities"
+          );
+
+      function redraw() {
+          svg.selectAll("rect")
+          .data(dataset)
+          .transition()
+          .duration(2500)
+          .delay(200)
+          .attr("height", function(d) {return h - yScale(d[1]);})
+          .attr("width", function(d) {return (xScale(d[0])) + (10)
+          });
+      }
+
+setInterval(redraw(), 3500);
+
+})
+   
+
